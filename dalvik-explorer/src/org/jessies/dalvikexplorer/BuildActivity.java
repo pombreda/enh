@@ -1,15 +1,14 @@
 package org.jessies.dalvikexplorer;
 
-import android.app.*;
-import android.content.pm.*;
-import android.os.*;
-import android.text.format.*;
-import android.util.*;
-import android.view.*;
-import android.widget.*;
-import java.io.*;
-import java.lang.reflect.*;
-import java.util.*;
+import android.app.Activity;
+import android.content.pm.FeatureInfo;
+import android.os.Build;
+import android.text.format.DateFormat;
+import android.view.WindowManager;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
 
 public class BuildActivity extends TextViewActivity {
   protected CharSequence title(String unused) {

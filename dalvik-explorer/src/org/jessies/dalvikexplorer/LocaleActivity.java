@@ -1,12 +1,18 @@
 package org.jessies.dalvikexplorer;
 
-import android.app.*;
-import android.content.*;
-import android.os.*;
-import android.view.*;
-import android.widget.*;
-import java.text.*;
-import java.util.*;
+import java.text.BreakIterator;
+import java.text.Collator;
+import java.text.DateFormat;
+import java.text.DateFormatSymbols;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Currency;
+import java.util.Date;
+import java.util.Locale;
 
 public class LocaleActivity extends TextViewActivity {
   protected String extraName() {

@@ -1,6 +1,6 @@
 package org.jessies.dalvikexplorer;
 
-import java.util.*;
+import java.util.Locale;
 
 public class LocaleListItem {
     private final Locale locale;

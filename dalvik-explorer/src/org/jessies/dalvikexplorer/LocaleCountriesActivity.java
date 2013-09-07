@@ -1,11 +1,13 @@
 package org.jessies.dalvikexplorer;
 
-import android.app.*;
-import android.content.*;
-import android.os.*;
-import android.widget.*;
-import android.view.*;
-import java.util.*;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class LocaleCountriesActivity extends BetterListActivity {    
     @Override public void onCreate(Bundle savedInstanceState) {

@@ -1,12 +1,16 @@
 package org.jessies.dalvikexplorer;
 
-import android.app.*;
-import android.content.*;
-import android.hardware.*;
-import android.os.*;
-import android.widget.*;
-import android.view.*;
-import java.util.*;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class SensorsActivity extends BetterListActivity implements SensorEventListener {
   private final HashMap<Sensor, SensorEvent> mData = new HashMap<Sensor, SensorEvent>();

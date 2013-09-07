@@ -17,11 +17,18 @@
 package org.jessies.dalvikexplorer;
 
 import android.content.Context;
-import android.util.Log;
-import android.view.*;
-import android.widget.*;
-import java.lang.reflect.*;
-import java.util.*;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.TextView;
+
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 /**
  * A ListAdapter that manages a ListView backed by an array of arbitrary

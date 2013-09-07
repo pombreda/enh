@@ -1,7 +1,11 @@
 package org.jessies.dalvikexplorer;
 
-import android.hardware.*;
-import java.util.*;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorManager;
+
+import java.util.HashMap;
+import java.util.Locale;
 
 public class SensorItem {
   private final HashMap<Sensor, SensorEvent> events;

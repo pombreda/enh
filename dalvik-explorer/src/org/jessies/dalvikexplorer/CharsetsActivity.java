@@ -1,12 +1,14 @@
 package org.jessies.dalvikexplorer;
 
-import android.app.*;
-import android.content.*;
-import android.os.*;
-import android.view.*;
-import android.widget.*;
-import java.nio.charset.*;
-import java.util.*;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ListView;
+
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class CharsetsActivity extends BetterListActivity {
     private static class CharsetListItem implements Comparable<CharsetListItem> {

@@ -1,11 +1,12 @@
 package org.jessies.dalvikexplorer;
 
-import android.app.*;
-import android.content.*;
-import android.os.*;
-import android.view.*;
-import android.widget.*;
-import java.io.*;
+import android.app.Activity;
+import android.app.ListActivity;
+import android.os.Build;
+import android.view.Menu;
+import android.widget.SearchView;
+
+import java.io.File;
 
 public abstract class Compatibility {
   public static Compatibility get() {

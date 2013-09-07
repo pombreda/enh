@@ -16,12 +16,14 @@
 
 package org.jessies.dalvikexplorer;
 
-import android.app.*;
-import android.content.*;
-import android.os.*;
-import android.view.*;
-import android.view.inputmethod.*;
-import android.widget.*;
+import android.app.ListActivity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
 
 /**
  * A ListActivity that:
