@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class FileSystemActivity extends BetterListActivity {
-    private static class FileListItem {
+    private static class FileListItem implements BetterArrayAdapter.Subtitleable {
         private final File file;
         private final String label;
         
@@ -48,7 +48,7 @@ public class FileSystemActivity extends BetterListActivity {
             path = "/";
         }
         
-        setListAdapter(new BetterArrayAdapter<FileListItem>(this, directoryItems(path), FileListItem.class, "toSubtitle"));
+        setListAdapter(new BetterArrayAdapter<FileListItem>(this, directoryItems(path), true));
         setTitle(path + " (" + getListAdapter().getCount() + ")");
     }
     

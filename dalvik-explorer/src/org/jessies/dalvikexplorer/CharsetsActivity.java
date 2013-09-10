@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class CharsetsActivity extends BetterListActivity {
-    private static class CharsetListItem implements Comparable<CharsetListItem> {
+    private static class CharsetListItem implements Comparable<CharsetListItem>, BetterArrayAdapter.Subtitleable {
         private final String alias;
         private final Charset charset;
         
@@ -32,7 +32,7 @@ public class CharsetsActivity extends BetterListActivity {
             return result;
         }
         
-        public String toSubtitle() {
+        @Override public String toSubtitle() {
             String canonicalName = charset.name();
             if (alias.equals(canonicalName)) {
                 return "Canonical";
@@ -44,7 +44,7 @@ public class CharsetsActivity extends BetterListActivity {
     
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setListAdapter(new BetterArrayAdapter<CharsetListItem>(this, CHARSETS, CharsetListItem.class, "toSubtitle"));
+        setListAdapter(new BetterArrayAdapter<CharsetListItem>(this, CHARSETS, true));
         setTitle("Charsets (" + CHARSETS.size() + ")");
     }
     

@@ -15,7 +15,7 @@ public class LocaleCountriesActivity extends BetterListActivity {
         
         String languageCode = getIntent().getStringExtra("org.jessies.dalvikexplorer.Language");
         List<LocaleListItem> locales = gatherLocales(languageCode);
-        setListAdapter(new BetterArrayAdapter<LocaleListItem>(this, locales, LocaleListItem.class, "toSubtitle"));
+        setListAdapter(new BetterArrayAdapter<LocaleListItem>(this, locales, true));
         setTitle(new Locale(languageCode).getDisplayLanguage() + " Locales (" + locales.size() + ")");
     }
     

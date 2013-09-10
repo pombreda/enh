@@ -43,7 +43,7 @@ public class SensorsActivity extends BetterListActivity implements SensorEventLi
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     final List<SensorItem> sensors = gatherSensors();
-    setListAdapter(new BetterArrayAdapter<SensorItem>(this, sensors, SensorItem.class, "toSubtitle"));
+    setListAdapter(new BetterArrayAdapter<SensorItem>(this, sensors, true));
     setTitle("Sensors (" + sensors.size() + ")");
   }
 

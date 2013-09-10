@@ -41,6 +41,7 @@ public class BetterListActivity extends ListActivity {
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     getListView().setTextFilterEnabled(true);
+    getListView().setFastScrollEnabled(true);
   }
   
   @Override public boolean onCreateOptionsMenu(Menu menu) {

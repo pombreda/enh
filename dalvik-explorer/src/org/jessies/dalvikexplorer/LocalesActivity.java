@@ -15,7 +15,7 @@ public class LocalesActivity extends BetterListActivity {
     
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setListAdapter(new BetterArrayAdapter<LocaleListItem>(this, LANGUAGES, LocaleListItem.class, "toSubtitle"));
+        setListAdapter(new BetterArrayAdapter<LocaleListItem>(this, LANGUAGES, true));
         int languageCount = LANGUAGES.size() - 1; // Don't count the extra entry for the default locale.
         setTitle("Languages (" + languageCount + ")");
     }

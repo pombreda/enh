@@ -7,7 +7,7 @@ import android.hardware.SensorManager;
 import java.util.HashMap;
 import java.util.Locale;
 
-public class SensorItem {
+public class SensorItem implements BetterArrayAdapter.Subtitleable {
   private final HashMap<Sensor, SensorEvent> events;
   private final Sensor sensor;
 

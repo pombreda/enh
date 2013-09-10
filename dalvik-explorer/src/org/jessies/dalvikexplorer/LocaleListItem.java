@@ -2,7 +2,7 @@ package org.jessies.dalvikexplorer;
 
 import java.util.Locale;
 
-public class LocaleListItem {
+public class LocaleListItem implements BetterArrayAdapter.Subtitleable {
     private final Locale locale;
     
     public LocaleListItem(Locale locale) {
@@ -21,7 +21,7 @@ public class LocaleListItem {
         return result;
     }
     
-    public String toSubtitle() {
+    @Override public String toSubtitle() {
         return locale.getDisplayName();
     }
 }

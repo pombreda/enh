@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class FileSystemsActivity extends BetterListActivity {
-  private static class FsListItem implements Comparable<FsListItem> {
+  private static class FsListItem implements Comparable<FsListItem>, BetterArrayAdapter.Subtitleable {
     private final String fs;
     private final String mountPoint;
     private final String type;
@@ -40,7 +40,7 @@ public class FileSystemsActivity extends BetterListActivity {
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setListAdapter(new BetterArrayAdapter<FsListItem>(this, fileSystems(), FsListItem.class, "toSubtitle"));
+    setListAdapter(new BetterArrayAdapter<FsListItem>(this, fileSystems(), true));
     setTitle("File Systems (" + getListAdapter().getCount() + ")");
   }
 

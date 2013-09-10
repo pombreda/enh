@@ -37,7 +37,7 @@ public class DalvikExplorerActivity extends ListActivity {
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setListAdapter(new BetterArrayAdapter<NamedActivity>(this, Arrays.asList(ACTIVITIES)));
+    setListAdapter(new BetterArrayAdapter<NamedActivity>(this, Arrays.asList(ACTIVITIES), false));
 
     String title = "Dalvik Explorer";
     try {
