@@ -11,12 +11,12 @@ import java.util.Locale;
 import java.util.TreeSet;
 
 public class LocalesActivity extends BetterListActivity {
-    private static final List<LocaleListItem> LANGUAGES = gatherLanguages();
-    
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setListAdapter(new BetterArrayAdapter<LocaleListItem>(this, LANGUAGES, true));
-        int languageCount = LANGUAGES.size() - 1; // Don't count the extra entry for the default locale.
+
+        List<LocaleListItem> languages = gatherLanguages();
+        setListAdapter(new BetterArrayAdapter<LocaleListItem>(this, languages, true));
+        int languageCount = languages.size() - 1; // Don't count the extra entry for the default locale.
         setTitle("Languages (" + languageCount + ")");
     }
     
