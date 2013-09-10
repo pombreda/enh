@@ -60,6 +60,12 @@ public class BuildActivity extends TextViewActivity {
     append(result, "Built By", Build.USER + "@" + Build.HOST);
 
     result.append("<p>");
+    append(result, "Release", Build.VERSION.RELEASE);
+    append(result, "Codename", Build.VERSION.CODENAME);
+    append(result, "API level", Build.VERSION.SDK_INT);
+    append(result, "Build Number", Build.VERSION.INCREMENTAL);
+
+    result.append("<p>");
     append(result, "CPU ABIs", cpuAbi + " " + cpuAbi2); // "armeabi-v7a"
 
     result.append("<p>");
