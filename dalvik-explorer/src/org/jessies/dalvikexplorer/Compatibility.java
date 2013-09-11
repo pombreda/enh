@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.os.Build;
 import android.view.Menu;
+import android.widget.ListView;
 import android.widget.SearchView;
 
 import java.io.File;
@@ -22,6 +23,7 @@ public abstract class Compatibility {
   }
 
   public abstract void configureActionBar(Activity activity);
+  public abstract void configureFastScroll(ListView listView);
   public abstract void configureSearchView(ListActivity listActivity, Menu menu);
   public abstract void configureSearchView(TextViewActivity textViewActivity, Menu menu);
   public abstract String describeFs(String mountPoint, String type);
@@ -30,6 +32,9 @@ public abstract class Compatibility {
   public static class PreGingerbreadCompatibility extends Compatibility {
     public void configureActionBar(Activity activity) {
       // Nothing to do, since there was no ActionBar pre-honeycomb.
+    }
+    public void configureFastScroll(ListView listView) {
+      listView.setFastScrollEnabled(true);
     }
     public void configureSearchView(ListActivity listActivity, Menu menu) {
       // Nothing to do, since a SearchView couldn't possibly exist pre-honeycomb.
@@ -108,6 +113,10 @@ public abstract class Compatibility {
   public static class IceCreamSandwichCompatibility extends HoneycombCompatibility {
     @Override public void configureActionBar(Activity activity) {
       activity.getActionBar().setHomeButtonEnabled(true);
+    }
+    @Override public void configureFastScroll(ListView listView) {
+      listView.setFastScrollEnabled(true);
+      listView.setFastScrollAlwaysVisible(true);
     }
   }
 }

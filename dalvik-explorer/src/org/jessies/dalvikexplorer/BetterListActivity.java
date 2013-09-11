@@ -43,8 +43,7 @@ public class BetterListActivity extends ListActivity {
     super.onCreate(savedInstanceState);
     ListView listView = getListView();
     listView.setTextFilterEnabled(true);
-    listView.setFastScrollEnabled(true);
-    listView.setFastScrollAlwaysVisible(true);
+    Compatibility.get().configureFastScroll(listView);
   }
   
   @Override public boolean onCreateOptionsMenu(Menu menu) {
