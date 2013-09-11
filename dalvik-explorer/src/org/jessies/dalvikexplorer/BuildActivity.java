@@ -22,10 +22,8 @@ public class BuildActivity extends TextViewActivity {
   static String getBuildDetailsAsString(Activity context, WindowManager wm) {
     final Build build = new Build();
 
-    // Fields keep being added to Build. These are the ones that weren't in API 1.
+    // Fields keep being added to Build. These are the ones that aren't in our minSdkVersion.
     // http://developer.android.com/resources/dashboard/platform-versions.html
-    final String cpuAbi = getFieldReflectively(build, "CPU_ABI"); // API 4.
-    final String manufacturer = getFieldReflectively(build, "MANUFACTURER"); // API 4.
     final String bootloader = getFieldReflectively(build, "BOOTLOADER"); // API 8.
     final String cpuAbi2 = getFieldReflectively(build, "CPU_ABI2"); // API 8.
     final String hardware = getFieldReflectively(build, "HARDWARE"); // API 8.
@@ -33,7 +31,7 @@ public class BuildActivity extends TextViewActivity {
 
     final StringBuilder result = new StringBuilder();
     result.append("<html>");
-    append(result, "Manufacturer", manufacturer); // "samsung"
+    append(result, "Manufacturer", Build.MANUFACTURER); // "samsung"
     append(result, "Model", Build.MODEL); // "Galaxy Nexus"
 
     result.append("<p>");
@@ -49,24 +47,25 @@ public class BuildActivity extends TextViewActivity {
     result.append("<p>");
     append(result, "Bootloader", bootloader); // "PRIMELA03"
     append(result, "Radio", getRadioVersion()); // "I515.XX V.FA02 / I515.FA02"
-    append(result, "OS", Build.ID); // "JRM38"
 
     result.append("<p>");
-    append(result, "Build", Build.DISPLAY);
-    append(result, "Build Type", Build.TYPE); // "userdebug"
     append(result, "Build Fingerprint", Build.FINGERPRINT); // "verizon/voles/sholes/sholes:2.1/ERD76/22321:userdebug/test-keys"
+
+    result.append("<p>");
+    append(result, "Release", Build.VERSION.RELEASE); // "JellyBean"
+    append(result, "Codename", Build.VERSION.CODENAME); // "JellyBean"
+    append(result, "Build Version", Build.ID); // "JRM38"
+    append(result, "Build Type", Build.TYPE); // "userdebug"
     append(result, "Build Tags", Build.TAGS); // "dev-keys"
     append(result, "Build Date", DateFormat.format("yyyy-MM-dd", Build.TIME)); // "2012-02-07"
     append(result, "Built By", Build.USER + "@" + Build.HOST);
-
-    result.append("<p>");
-    append(result, "Release", Build.VERSION.RELEASE);
-    append(result, "Codename", Build.VERSION.CODENAME);
-    append(result, "API level", Build.VERSION.SDK_INT);
     append(result, "Build Number", Build.VERSION.INCREMENTAL);
 
     result.append("<p>");
-    append(result, "CPU ABIs", cpuAbi + " " + cpuAbi2); // "armeabi-v7a"
+    append(result, "API level", Build.VERSION.SDK_INT); // 17
+
+    result.append("<p>");
+    append(result, "CPU ABIs", Build.CPU_ABI + " " + cpuAbi2); // "armeabi-v7a"
 
     result.append("<p>");
     append(result, "Kernel Version", Utils.readFile("/proc/version")); // "Linux version 3.0.8-g034fec9 (android-build@vpbs1.mtv.corp.google.com) (gcc version 4.4.3 (GCC) ) #1 SMP PREEMPT Tue Mar 13 15:46:20 PDT 2012"
@@ -117,11 +116,16 @@ public class BuildActivity extends TextViewActivity {
   }
 
   private static String getRadioVersion() {
+    String radioVersion;
     try {
       final Method method = Build.class.getMethod("getRadioVersion");
-      return (String) method.invoke(null);
+      radioVersion = (String) method.invoke(null);
     } catch (Exception ex) {
-      return getFieldReflectively(new Build(), "RADIO");
+      radioVersion = getFieldReflectively(new Build(), "RADIO");
     }
+    if (radioVersion.isEmpty()) {
+      radioVersion = "(no radio)";
+    }
+    return radioVersion;
   }
 }
