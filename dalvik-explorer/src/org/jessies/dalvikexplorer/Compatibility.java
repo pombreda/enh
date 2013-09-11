@@ -67,6 +67,11 @@ public abstract class Compatibility {
   }
 
   public static class HoneycombCompatibility extends GingerbreadCompatibility {
+    @Override public void configureFastScroll(ListView listView) {
+      listView.setFastScrollEnabled(true);
+      listView.setFastScrollAlwaysVisible(true);
+    }
+
     @Override public void configureSearchView(final ListActivity listActivity, Menu menu) {
       SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
       searchView.setSubmitButtonEnabled(false);
@@ -113,10 +118,6 @@ public abstract class Compatibility {
   public static class IceCreamSandwichCompatibility extends HoneycombCompatibility {
     @Override public void configureActionBar(Activity activity) {
       activity.getActionBar().setHomeButtonEnabled(true);
-    }
-    @Override public void configureFastScroll(ListView listView) {
-      listView.setFastScrollEnabled(true);
-      listView.setFastScrollAlwaysVisible(true);
     }
   }
 }
