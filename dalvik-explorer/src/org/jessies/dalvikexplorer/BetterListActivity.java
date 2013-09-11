@@ -24,6 +24,7 @@ import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ListView;
 
 /**
  * A ListActivity that:
@@ -40,8 +41,10 @@ public class BetterListActivity extends ListActivity {
   
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    getListView().setTextFilterEnabled(true);
-    getListView().setFastScrollEnabled(true);
+    ListView listView = getListView();
+    listView.setTextFilterEnabled(true);
+    listView.setFastScrollEnabled(true);
+    listView.setFastScrollAlwaysVisible(true);
   }
   
   @Override public boolean onCreateOptionsMenu(Menu menu) {
