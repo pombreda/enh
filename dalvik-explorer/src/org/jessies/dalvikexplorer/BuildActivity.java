@@ -123,7 +123,7 @@ public class BuildActivity extends TextViewActivity {
     } catch (Exception ex) {
       radioVersion = getFieldReflectively(new Build(), "RADIO");
     }
-    if (radioVersion.isEmpty()) {
+    if (radioVersion.length() == 0) {
       radioVersion = "(no radio)";
     }
     return radioVersion;
