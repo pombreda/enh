@@ -17,7 +17,6 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/build_widget_provider_info" />
         </receiver>
-        <service android:name=".BuildWidget$UpdateService" />
 
         <activity android:name=".BuildActivity" />
         <activity android:name=".CharsetsActivity" />
